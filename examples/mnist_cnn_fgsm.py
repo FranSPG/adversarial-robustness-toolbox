@@ -2,13 +2,16 @@
 """Trains a convolutional neural network on the MNIST dataset, then attacks it with the FGSM attack."""
 from __future__ import absolute_import, division, print_function, unicode_literals
 
-from keras.models import Sequential
-from keras.layers import Dense, Flatten, Conv2D, MaxPooling2D, Dropout
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Flatten, Conv2D, MaxPooling2D, Dropout
 import numpy as np
 
 from art.attacks.evasion import FastGradientMethod
 from art.estimators.classification import KerasClassifier
 from art.utils import load_dataset
+
+from tensorflow.python.framework.ops import disable_eager_execution
+disable_eager_execution()
 
 # Read MNIST dataset
 (x_train, y_train), (x_test, y_test), min_, max_ = load_dataset(str("mnist"))
