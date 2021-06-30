@@ -10,6 +10,9 @@ from art.attacks.evasion import FastGradientMethod
 from art.estimators.classification import KerasClassifier
 from art.utils import load_dataset
 
+from tensorflow.python.framework.ops import disable_eager_execution
+disable_eager_execution()
+
 # Read MNIST dataset
 (x_train, y_train), (x_test, y_test), min_, max_ = load_dataset(str("mnist"))
 
