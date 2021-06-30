@@ -2,8 +2,8 @@
 """Trains a convolutional neural network on the MNIST dataset, then attacks it with the FGSM attack."""
 from __future__ import absolute_import, division, print_function, unicode_literals
 
-from keras.models import Sequential
-from keras.layers import Dense, Flatten, Conv2D, MaxPooling2D, Dropout
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Flatten, Conv2D, MaxPooling2D, Dropout
 import numpy as np
 
 from art.attacks.evasion import FastGradientMethod
